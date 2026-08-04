@@ -1,0 +1,605 @@
+/* ---------- ОБЩИЕ СТИЛИ ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ---------- ШАПКА + НАВИГАЦИЯ ---------- */
+header {
+    background-color: #1a1a2e;
+    color: #fff;
+    border-bottom: 4px solid #e94560;
+    padding: 15px 20px 15px 10px;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 30px;
+}
+
+.header-left h1 {
+    font-size: 24px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.header-center {
+    display: flex;
+    gap: 30px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex: 1 1 auto;
+    margin: 0 15px;
+}
+
+.header-center a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 22px;
+    font-weight: bold;
+    font-size: 17px;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.header-center a:hover {
+    background-color: #e94560;
+}
+
+.header-right {
+    white-space: nowrap;
+}
+
+.call-btn {
+    display: inline-block;
+    background-color: transparent;
+    color: #e94560;
+    padding: 12px 32px;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    border: 2px solid #e94560;
+    border-radius: 4px;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.call-btn:hover {
+    background-color: #e94560;
+    color: #fff;
+    transform: scale(1.04);
+}
+
+/* ---------- КОНТЕЙНЕР ---------- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 15px;
+}
+
+/* ---------- СЕКЦИИ ---------- */
+section {
+    background-color: #fff;
+    padding: 15px 18px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+section h2 {
+    color: #1a1a2e;
+    margin-bottom: 12px;
+    border-bottom: 3px solid #e94560;
+    padding-bottom: 6px;
+    font-size: 26px;
+}
+
+/* ---------- КАТАЛОГ ---------- */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+}
+
+.car-card {
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 6px 10px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.car-card h3 {
+    margin: 4px 0 2px;
+    font-size: 17px;
+    color: #1a1a2e;
+    font-weight: 700;
+}
+
+.car-card .price {
+    font-size: 15px;
+    font-weight: normal;
+    color: #e94560;
+    margin: 0;
+}
+
+.catalog-note {
+    margin-top: 10px;
+    text-align: center;
+    color: #888;
+    font-size: 15px;
+}
+
+/* ===== ПОДБОРКИ АВТО ===== */
+.collections-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.collections-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    border: 1px solid #e7e7e7;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.collections-list li:hover {
+    background-color: #f0f0f5;
+    transform: translateX(6px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.collection-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1a1a2e;
+}
+
+.collection-arrow {
+    font-size: 22px;
+    color: #e94560;
+    font-weight: 300;
+    transition: transform 0.2s;
+}
+
+.collections-list li:hover .collection-arrow {
+    transform: translateX(4px);
+}
+
+/* ---------- НАШИ УСЛУГИ ---------- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service-item {
+    background: #f9f9f9;
+    padding: 30px 25px;
+    border-radius: 12px;
+    text-align: center;
+    border-left: 6px solid #e94560;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.service-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.service-item h3 {
+    color: #1a1a2e;
+    margin-bottom: 8px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.service-item p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* ---------- ПРЕИМУЩЕСТВА ---------- */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.benefit-item {
+    background: #f9f9f9;
+    padding: 12px 10px;
+    border-radius: 10px;
+    text-align: center;
+    border-left: 5px solid #e94560;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.benefit-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.benefit-item h3 {
+    color: #1a1a2e;
+    margin-bottom: 4px;
+    font-size: 19px;
+}
+
+.benefit-item p {
+    color: #555;
+    font-size: 15px;
+}
+
+/* ================================================================ */
+/* ===== НОВЫЙ ФУТЕР (по мотивам РАДАР АВТО) ===== */
+/* ================================================================ */
+
+footer {
+    background-color: #1a1a2e;
+    color: #ccc;
+    padding: 40px 20px 20px;
+    margin-top: 30px;
+    font-size: 15px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Логотип --- */
+.footer-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.footer-logo h2 {
+    font-size: 28px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.footer-logo span {
+    font-size: 14px;
+    color: #e94560;
+    letter-spacing: 1px;
+    display: block;
+    margin-top: 2px;
+}
+
+/* --- Колонки --- */
+.footer-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 25px;
+}
+
+.footer-col h3 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 6px;
+}
+
+.footer-col ul li a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 15px;
+}
+
+.footer-col ul li a:hover {
+    color: #e94560;
+}
+
+/* --- Колонка "Телефон" с формой --- */
+.footer-contact .footer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-contact .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.footer-contact .form-group label {
+    color: #ddd;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.footer-contact .form-group input {
+    padding: 10px 14px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background-color: #2a2a3e;
+    color: #fff;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+.footer-contact .form-group input:focus {
+    border-color: #e94560;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.2);
+}
+
+.footer-submit-btn {
+    background-color: transparent;
+    color: #e94560;
+    border: 2px solid #e94560;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 4px;
+}
+
+.footer-submit-btn:hover {
+    background-color: #e94560;
+    color: #fff;
+}
+
+.footer-salon {
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.footer-salon:hover {
+    color: #e94560;
+}
+
+/* --- Согласие --- */
+.footer-consent {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #333;
+}
+
+.footer-consent a {
+    color: #e94560;
+    text-decoration: none;
+}
+
+.footer-consent a:hover {
+    text-decoration: underline;
+}
+
+/* --- Нижняя строка --- */
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #888;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+    margin-bottom: 15px;
+}
+
+.footer-bottom a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-bottom a:hover {
+    color: #e94560;
+}
+
+/* --- Юридический текст --- */
+.footer-legal {
+    font-size: 12px;
+    color: #777;
+    line-height: 1.6;
+    padding-top: 10px;
+}
+
+/* ---------- АДАПТИВНОСТЬ ---------- */
+@media (max-width: 992px) {
+    .header-container {
+        gap: 15px;
+    }
+    .header-center {
+        gap: 15px;
+        margin: 0 10px;
+    }
+    .header-center a {
+        padding: 8px 16px;
+        font-size: 15px;
+    }
+    .call-btn {
+        padding: 10px 24px;
+        font-size: 16px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-columns {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px;
+    }
+    .header-container {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    .header-left h1 {
+        font-size: 22px;
+    }
+    .header-center {
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0;
+        order: 3;
+        flex-basis: 100%;
+        justify-content: center;
+    }
+    .header-center a {
+        padding: 6px 14px;
+        font-size: 14px;
+    }
+    .header-right {
+        margin-left: auto;
+    }
+    .call-btn {
+        padding: 10px 20px;
+        font-size: 15px;
+        width: auto;
+    }
+
+    .container {
+        padding: 8px 10px;
+    }
+
+    section {
+        padding: 12px 14px;
+        margin-bottom: 15px;
+    }
+    section h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+    }
+
+    .catalog-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 8px;
+    }
+    .car-card {
+        padding: 6px 4px 8px;
+    }
+    .car-card h3 {
+        font-size: 15px;
+    }
+    .car-card .price {
+        font-size: 13px;
+    }
+
+    .collections-list li {
+        padding: 12px 16px;
+    }
+    .collection-text {
+        font-size: 16px;
+    }
+    .collection-arrow {
+        font-size: 20px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .service-item {
+        padding: 20px 18px;
+    }
+    .service-item h3 {
+        font-size: 20px;
+    }
+    .service-item p {
+        font-size: 15px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .benefit-item {
+        padding: 10px 8px;
+    }
+
+    /* Футер */
+    .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+    }
+    .footer-contact .footer-form {
+        align-items: center;
+    }
+    .footer-contact .form-group {
+        width: 100%;
+        max-width: 300px;
+    }
+    .footer-submit-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
