@@ -453,6 +453,58 @@ footer {
     padding-top: 10px;
 }
 
+.burger{
+    display: none;
+    width: 30px;
+    height: 22px;
+    flex-direction: column;
+    cursor: pointer;
+    justify-content: space-around;
+}
+
+.burger span{
+    background-color: aliceblue;
+    height: 2px;
+}
+
+.burger.active span:nth-child(1){
+    transform: rotate(45deg) translateY(8px);
+}
+
+.burger.active span:nth-child(2){
+    display: none;
+}
+
+.burger.active span:nth-child(3){
+    transform: rotate(-45deg) translateY(-8px);
+}
+
+#topBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    display: none; /* Скрыта по умолчанию */
+}
+
+#topBtn:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+#topBtn.show {
+    display: block; /* Показываем при прокрутке */
+}
+
 /* ---------- АДАПТИВНОСТЬ ---------- */
 @media (max-width: 992px) {
     .header-container {
@@ -602,4 +654,20 @@ footer {
         align-items: center;
         text-align: center;
     }
+    .burger{
+        display: flex;
+    }
+    .header-center{
+        display: none;
+    }
+    .header-center.show{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    width: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    }
 }
+

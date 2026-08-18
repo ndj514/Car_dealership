@@ -1,7 +1,3 @@
-const BOT_TOKEN = 'TOKEN';
-const CHAT_ID = 'ID';
-const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-
 // Находим форму по классу
 const form = document.querySelector('.footer-form');
 
@@ -35,3 +31,29 @@ function sendForm(event) {
 
 // Добавляем обработчик события submit на форму
 form.addEventListener('submit', sendForm);
+
+const burgers = document.querySelector(".burger");
+const menu = document.querySelector(".header-center")
+
+burgers.addEventListener("click", burgers_click);
+
+function burgers_click(){
+    burgers.classList.toggle("active")
+    menu.classList.toggle("show")
+};
+
+const topBTM = document.getElementById("topBtn");
+window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                topBtn.classList.add('show');
+            } else {
+                topBtn.classList.remove('show');
+            }
+        })
+
+topBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
