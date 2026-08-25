@@ -18,6 +18,8 @@ header {
     color: #fff;
     border-bottom: 4px solid #e94560;
     padding: 15px 20px 15px 10px;
+    position: relative;
+    z-index: 1000;
 }
 
 .header-container {
@@ -279,7 +281,6 @@ footer {
     margin: 0 auto;
 }
 
-/* --- Логотип --- */
 .footer-logo {
     text-align: center;
     margin-bottom: 30px;
@@ -301,7 +302,6 @@ footer {
     margin-top: 2px;
 }
 
-/* --- Колонки --- */
 .footer-columns {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -338,7 +338,6 @@ footer {
     color: #e94560;
 }
 
-/* --- Колонка "Телефон" с формой --- */
 .footer-contact .footer-form {
     display: flex;
     flex-direction: column;
@@ -403,7 +402,6 @@ footer {
     color: #e94560;
 }
 
-/* --- Согласие --- */
 .footer-consent {
     font-size: 14px;
     color: #aaa;
@@ -421,7 +419,6 @@ footer {
     text-decoration: underline;
 }
 
-/* --- Нижняя строка --- */
 .footer-bottom {
     display: flex;
     flex-wrap: wrap;
@@ -445,7 +442,6 @@ footer {
     color: #e94560;
 }
 
-/* --- Юридический текст --- */
 .footer-legal {
     font-size: 12px;
     color: #777;
@@ -453,59 +449,68 @@ footer {
     padding-top: 10px;
 }
 
-.burger{
+/* ---------- БУРГЕР (по умолчанию скрыт) ---------- */
+.burger {
     display: none;
     width: 30px;
     height: 22px;
     flex-direction: column;
     cursor: pointer;
     justify-content: space-around;
+    z-index: 1001;
 }
 
-.burger span{
-    background-color: aliceblue;
-    height: 2px;
+.burger span {
+    background-color: #fff;
+    height: 3px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
-.burger.active span:nth-child(1){
-    transform: rotate(45deg) translateY(8px);
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
 }
 
-.burger.active span:nth-child(2){
-    display: none;
+.burger.active span:nth-child(2) {
+    opacity: 0;
 }
 
-.burger.active span:nth-child(3){
-    transform: rotate(-45deg) translateY(-8px);
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
 }
 
+/* ---------- КНОПКА "НАВЕРХ" ---------- */
 #topBtn {
     position: fixed;
     bottom: 30px;
     right: 30px;
     padding: 15px 25px;
-    background-color: #007bff;
-    color: white;
+    background-color: #e94560;
+    color: #fff;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     font-size: 18px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
-    display: none; /* Скрыта по умолчанию */
+    display: none; /* скрыта по умолчанию */
+    z-index: 999;
 }
 
 #topBtn:hover {
-    background-color: #0056b3;
+    background-color: #c7304f;
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
 #topBtn.show {
-    display: block; /* Показываем при прокрутке */
+    display: block;
 }
 
-/* ---------- АДАПТИВНОСТЬ ---------- */
+/* ================================================================ */
+/* ===== АДАПТИВНОСТЬ ===== */
+/* ================================================================ */
+
 @media (max-width: 992px) {
     .header-container {
         gap: 15px;
@@ -540,45 +545,167 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* ... остальные стили ... */
-
-    .burger {
-        display: flex;
-        z-index: 1001; /* чтобы бургер был поверх меню */
+    header {
+        padding: 12px 15px;
+    }
+    .header-container {
+        flex-wrap: nowrap;
+        gap: 10px;
+        justify-content: space-between;
+    }
+    .header-left h1 {
+        font-size: 20px;
     }
 
+    /* Скрываем навигацию, показываем бургер */
     .header-center {
+        display: none;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100vh;
-        background: rgba(26, 26, 46, 0.95); /* полупрозрачный тёмный фон */
+        background-color: rgba(26, 26, 46, 0.96);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 30px;
-        transform: translateX(100%); /* уезжает вправо */
-        transition: transform 0.4s ease;
-        display: flex !important; /* всегда flex, но скрыт трансформацией */
-        pointer-events: none; /* запрещаем клики, пока скрыто */
+        gap: 25px;
+        margin: 0;
+        padding: 20px;
         z-index: 1000;
+        transition: all 0.3s ease;
     }
 
     .header-center.show {
-        transform: translateX(0); /* выезжает */
-        pointer-events: auto; /* разрешаем клики */
+        display: flex !important; /* переопределяем display: none */
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to   { opacity: 1; transform: translateY(0); }
     }
 
     .header-center a {
-        color: #fff;
         font-size: 22px;
         padding: 12px 30px;
+        white-space: normal;
+        text-align: center;
+        width: 100%;
+        max-width: 280px;
         border-radius: 8px;
-        transition: background 0.2s;
     }
 
     .header-center a:hover {
-        background: #e94560;
+        background-color: #e94560;
+    }
+
+    .header-right {
+        margin-left: 0;
+        order: 2;
+    }
+
+    .call-btn {
+        padding: 10px 18px;
+        font-size: 15px;
+        width: auto;
+    }
+
+    .burger {
+        display: flex;
+        order: 3;
+        margin-left: auto;
+    }
+
+    /* Остальные секции */
+    .container {
+        padding: 8px 10px;
+    }
+
+    section {
+        padding: 12px 14px;
+        margin-bottom: 15px;
+    }
+    section h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+    }
+
+    .catalog-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 8px;
+    }
+    .car-card {
+        padding: 6px 4px 8px;
+    }
+    .car-card h3 {
+        font-size: 15px;
+    }
+    .car-card .price {
+        font-size: 13px;
+    }
+
+    .collections-list li {
+        padding: 12px 16px;
+    }
+    .collection-text {
+        font-size: 16px;
+    }
+    .collection-arrow {
+        font-size: 20px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .service-item {
+        padding: 20px 18px;
+    }
+    .service-item h3 {
+        font-size: 20px;
+    }
+    .service-item p {
+        font-size: 15px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .benefit-item {
+        padding: 10px 8px;
+    }
+
+    /* Футер */
+    .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+    }
+    .footer-contact .footer-form {
+        align-items: center;
+    }
+    .footer-contact .form-group {
+        width: 100%;
+        max-width: 300px;
+    }
+    .footer-submit-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Кнопка наверх — чуть меньше и ближе к краю */
+    #topBtn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        font-size: 16px;
     }
 }
