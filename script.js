@@ -32,28 +32,39 @@ function sendForm(event) {
 // Добавляем обработчик события submit на форму
 form.addEventListener('submit', sendForm);
 
-const burgers = document.querySelector(".burger");
-const menu = document.querySelector(".header-center")
+const burger = document.querySelector(".burger");
+const menu = document.querySelector(".header-center");
 
-burgers.addEventListener("click", burgers_click);
+burger.addEventListener("click", function() {
+    burger.classList.toggle("active");
+    menu.classList.toggle("show");
+});
 
-function burgers_click(){
-    burgers.classList.toggle("active")
-    menu.classList.toggle("show")
-};
-
-const topBTM = document.getElementById("topBtn");
-window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                topBtn.classList.add('show');
-            } else {
-                topBtn.classList.remove('show');
-            }
-        })
-
-topBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+// Закрываем меню при клике на любую ссылку внутри
+document.querySelectorAll(".header-center a").forEach(link => {
+    link.addEventListener("click", function() {
+        burger.classList.remove("active");
+        menu.classList.remove("show");
     });
+});
+
+// Закрываем меню при клике вне его (по оверлею)
+menu.addEventListener("click", function(e) {
+    if (e.target === menu) { // клик по самому фону (оверлей)
+        burger.classList.remove("active");
+        menu.classList.remove("show");
+    }
+});
+
+// === КНОПКА «НАВЕРХ» ===
+const topBtn = document.getElementById("topBtn");
+window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+        topBtn.classList.add('show');
+    } else {
+        topBtn.classList.remove('show');
+    }
+});
+topBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
